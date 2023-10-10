@@ -1,0 +1,31 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <label for="firstName">First Name: </label>
+  <input id="firstName" type="text" formControlName="firstName">
+
+  <label for="lastName">Last Name: </label>
+  <input id="lastName" type="text" formControlName="lastName">
+
+  <div formGroupName="address">
+    <label for="street">Street: </label>
+    <input id="street" type="text" formControlName="street">
+
+    <label for="city">City: </label>
+    <input id="city" type="text" formControlName="city">
+
+    <label for="state">State: </label>
+    <input id="state" type="text" formControlName="state">
+
+    <label for="zip">Zip Code: </label>
+    <input id="zip" type="text" formControlName="zip" (change)="onZipChange()">
+  </div>
+
+  <div formArrayName="aliases">
+    <label>Aliases:</label>
+    <button type="button" (click)="addAlias()">Add Alias</button>
+    <div *ngFor="let alias of aliases.controls; let i = index">
+      <input [formControlName]="i">
+    </div>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>

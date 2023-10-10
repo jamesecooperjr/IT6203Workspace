@@ -1,16 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <div>
-    <h1>Hello, {{ Name }}</h1>
-    <p>Today's is {{ Date | date }}</p>
-  </div>
-  
-</body>
-</html>
+<p *ngIf="true">
+  Will be displayed because ngIf is true.
+  This paragraph is in the DOM.
+</p>
+<p *ngIf="false">
+  Will not be displayed because ngIf is false。
+  This paragraph is not in the DOM.
+</p>
+                  
+<h2 *ngIf="condition">Welcome to {{title}}. This message is conditionally displayed.</h2>
+<button (click)="condition = !condition">Click
+<span *ngIf="!condition; then showTheMessage; else hideTheMessage"> </span>
+<ng-template #showTheMessage > Click to read an important message!</ng-template>
+<ng-template #hideTheMessage >Click to hide the message.</ng-template>
+</button>
+                    
+        
+<div>
+  <ul *ngFor ="let user of users let i = index">
+      <li> {{user}} (index {{i}})</li>
+  </ul>
+</div>
+
+
+<div>
+  <ul>
+    <!--
+    <ng-template ngFor let-student [ngForOf]="students" let-i="index">
+      <li>{{student.firstName}} {{student.lastName}}</li>
+    </ng-template>
+    -->
+  </ul>
+</div>
+
+

@@ -1,0 +1,8 @@
+<h1>{{title}}</h1>
+<div>
+    <ul *ngFor ="let student of students let i = index">
+        <li> {{student.id}}: {{student.firstName}} {{student.lastName}} (index {{i}})</li>
+    </ul>
+</div>
+ <app-new-student-form></app-new-student-form> 
+ 
